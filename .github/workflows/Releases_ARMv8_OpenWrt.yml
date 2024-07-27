@@ -89,16 +89,6 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
-    - name: Create rootfs.tar.gz
-      run: |
-        cd openwrt
-        TARGET_DIR=$(find bin/targets -type d | head -n 1)
-        tar -czvf rootfs.tar.gz -C $TARGET_DIR .
-    - name: Cleaning
-      working-directory: ${{ github.workspace }}/openwrt
-      run: |
-        cd bin/targets/armsr/armv8
-        /bin/bash ../../../../../SCRIPTS/06_cleaning.sh
     - name: Upload rootfs.tar.gz artifact
       uses: actions/upload-artifact@v3
       with:
