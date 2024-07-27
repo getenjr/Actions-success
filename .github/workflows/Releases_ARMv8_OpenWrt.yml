@@ -80,7 +80,7 @@ jobs:
         #OPENWRT_VER: R23.5.1
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
@@ -129,7 +129,7 @@ jobs:
     - name: Delete older workflow runs and artifacts
       uses: Mattraks/delete-workflow-runs@main
       with:
-        token: ${{ secrets.REPO_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ github.repository }}
         delete_workflow_pattern: Releases ARMv8 OpenWrt
         retain_days: 30
@@ -144,7 +144,7 @@ jobs:
         delete_tag_pattern: ARMv8
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     #- name: Telegram notification
     #  run: |
