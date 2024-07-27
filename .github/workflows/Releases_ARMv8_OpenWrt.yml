@@ -143,8 +143,6 @@ jobs:
         keep_latest: 10
         delete_tag_pattern: ARMv8
         delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
 
     #- name: Telegram notification
     #  run: |
