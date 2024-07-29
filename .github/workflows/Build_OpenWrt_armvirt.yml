@@ -99,25 +99,13 @@ jobs:
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
 
-        
-        tar -xzf gcc-x.y.z.tar.gz
-        cd gcc-x.y.z
-
-        mkdir build-gcc
-        cd build-gcc
-
-        ../configure --prefix=/usr/local/gcc-x.y.z --enable-languages=c,c++ --disable-multilib
-
-        make -j$(nproc)
-        sudo make install
-
     - name: Cache Toolchain
       uses: klever1988/cachewrtbuild@main
       #uses: stupidloud/cachewrtbuild@main
       with:
         ccache: true
         skip: true
-        toolchain: true
+        toolchain: false
         clean: false
         prefix: ${{ github.workspace }}/openwrt
 
