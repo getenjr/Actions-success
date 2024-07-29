@@ -106,7 +106,7 @@ jobs:
         tag: ${{ env.DATE2 }}_${{ env.FILE_NAME }}
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}
         body: |
           #### ARMv8 Openwrt 固件配置：
           -  IP:192.168.123.2
